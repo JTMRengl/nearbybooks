@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OmsslogMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		ADMIN_OMSSLOG
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		OMSSLOG_ID,	
+		OMSS_USERID,
+		OMSS_USERNAME,
+		CREATE_DATE,	
+		OPERATE_TYPE,	
+		BUSINESS,	
+		OPERATE_RESULT,	
+		OPERATE_CONTENT,	
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+	    #{OMSS_USERID},	
+	    #{OMSS_USERNAME},	
+		#{CREATE_DATE},	
+		#{OPERATE_TYPE},	
+		#{BUSINESS},	
+		#{OPERATE_RESULT},	
+		#{OPERATE_CONTENT},	
+		#{OMSSLOG_ID}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="omssLog">
+		insert into 
+		ADMIN_OMSSLOG
+		(
+			OMSS_USERID,	
+			OMSS_USERNAME,	
+			CREATE_DATE,
+			OPERATE_TYPE,
+			BUSINESS,	
+			OPERATE_RESULT,	
+			OPERATE_CONTENT
+		) 
+		values 
+		(
+			#{OMSS_USERID},	
+			#{OMSS_USERNAME},	
+			#{CREATE_DATE},	
+			#{OPERATE_TYPE},	
+			#{BUSINESS},	
+			#{OPERATE_RESULT},	
+			#{OPERATE_CONTENT}	
+		)
+	</insert>
+	
+	
+	
+</mapper>

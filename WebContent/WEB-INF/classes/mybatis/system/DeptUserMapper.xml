@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DeptUserMapper">
+	
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_DEPT_USER
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+	    ID,
+		NAME,	
+		PARENT_ID,	
+		TYPE
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+	    #{ID},
+		#{NAME},	
+		#{PARENT_ID},	
+		#{TYPE}
+	</sql>
+	
+	<!-- 新增-->
+	<insert id="save" parameterType="pd">
+		insert into 
+	<include refid="tableName"></include>
+		(
+	<include refid="Field"></include>
+		) values (
+	<include refid="FieldValue"></include>
+		)
+	</insert>
+	
+     <!-- 修改 -->
+	<update id="edit" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set 
+			NAME = #{NAME},
+			PARENT_ID = #{PARENT_ID},
+			TYPE=#{TYPE}
+		where 
+		ID = #{ID}
+	</update>
+	
+	<!-- 删除-->
+	<delete id="delete" parameterType="String">
+		delete from
+		<include refid="tableName"></include>
+		where 
+		ID = #{ID}
+	</delete>
+	
+	<!-- 根据id查询用户或者组织机构信息 -->
+	<select id="findById" parameterType="String" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where 
+		 ID = #{ID}
+	</select>
+	
+	<!--查询用户所属组织机构-->
+	<select id="findByUserId" parameterType="String" resultType="pd">
+		select 
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where ID IN (
+		 select PARENT_ID from 
+		 <include refid="tableName"></include>
+		  where ID=#{ID}
+		)
+	</select>
+	
+	
+</mapper>

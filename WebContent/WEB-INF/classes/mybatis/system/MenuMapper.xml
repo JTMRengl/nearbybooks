@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MenuMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_MENU
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		MENU_ID,
+ 		MENU_NAME,
+ 		MENU_URL,
+ 		PARENT_ID,
+ 		MENU_ICON,
+ 		MENU_ORDER,
+ 		MENU_STATE,
+ 		MENU_TYPE,
+ 		ISQTMENU
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{MENU_ID},
+ 		#{MENU_NAME},
+ 		#{MENU_URL},
+ 		#{PARENT_ID},
+ 		#{MENU_ICON},
+ 		#{MENU_ORDER},
+ 		#{MENU_STATE},
+ 		#{MENU_TYPE},
+ 		#{ISQTMENU}
+	</sql>
+	
+	<!--查询父节点下子节点菜单 -->
+	<select id="findListByPId" parameterType="String"  resultType="Menu">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where PARENT_ID = #{parentId} 
+		order by MENU_ORDER ASC
+	</select>
+	
+	
+	<!--根据id查询菜单数据-->
+	<select id="findById" parameterType="String"  resultType="pd">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+		where MENU_ID = #{MENU_ID} 
+	</select>
+	
+     <!--新增 -->
+	<insert id="save" parameterType="Menu">
+		insert into 
+			<include refid="tableName"></include> 
+		(
+			<include refid="Field"></include>
+		) values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+	
+	
+	<!--更新菜单 -->
+	<update id="edit" parameterType="Menu">
+		update 
+		<include refid="tableName"></include> 
+		set 
+			MENU_NAME =#{MENU_NAME},
+			MENU_URL  =#{MENU_URL} ,
+			MENU_STATE=#{MENU_STATE},
+			MENU_TYPE =#{MENU_TYPE},
+			ISQTMENU =#{ISQTMENU}
+		where 
+			MENU_ID=#{MENU_ID}
+	</update>
+	
+    <!--修改菜单图标  -->
+	<update id="editIcon" parameterType="Menu">
+		update 
+		<include refid="tableName"></include> 
+		set 
+			MENU_ICON=#{MENU_ICON}
+		where
+			MENU_ID=#{MENU_ID}
+	</update>
+	
+	<!--查询最大ID值-->
+	<select id="findMaxId"  resultType="int">
+		select MAX(MENU_ID) MID from 
+		<include refid="tableName"></include>
+	</select>
+	
+	<!--查询最大序列值-->
+	<select id="findMaxOrder" parameterType="String" resultType="int">
+		select MAX(MENU_ORDER) max from 
+		<include refid="tableName"></include>
+		where PARENT_ID=#{PARENT_ID}
+	</select>
+	
+	<!--删除菜单-->
+	<delete id="deleteMenu" parameterType="String">
+		delete from 
+		<include refid="tableName"></include> 
+		where MENU_ID=#{MENU_ID} 
+	</delete>
+	
+	
+</mapper>

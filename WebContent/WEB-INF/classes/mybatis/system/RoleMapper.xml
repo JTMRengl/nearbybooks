@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="RoleMapper">
+	
+	
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_ROLE
+	</sql>
+	
+	<!--表名 -->
+	<sql id="userRoleTableName">
+		SYS_USER_ROLE
+	</sql>
+	
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		ROLE_ID,
+		ROLE_NAME,
+		RIGHTS,
+		ADD_QX,
+		DEL_QX,
+		EDIT_QX,
+		CHA_QX
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{ROLE_ID},
+		#{ROLE_NAME},
+		#{RIGHTS},
+		#{ADD_QX},
+		#{DEL_QX},
+		#{EDIT_QX},
+		#{CHA_QX}
+	</sql>
+	
+	
+    <!--根据用户id查询用户下所有用户角色 -->
+	<select id="findByUserId" parameterType="String" resultType="Role">
+		select  
+			<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where ROLE_ID in (
+			select  ROLEID from 
+		   <include refid="userRoleTableName"></include>
+		   where USERID=#{USERID} 
+		)
+	</select>
+	
+	
+	<!--查询父节点下子节点菜单 -->
+	<select id="findRoleList"  resultType="Role">
+		select  
+			<include refid="Field"></include>
+		from 
+			<include refid="tableName"></include>
+	</select>
+	
+	<!-- 通过id查找 -->
+	<select id="findById" parameterType="String" resultType="Role">
+		select  
+		<include refid="Field"></include>
+		from 
+		<include refid="tableName"></include>
+		where ROLE_ID = #{ROLE_ID}
+	</select>
+	
+	<!-- 添加 -->
+	<insert id="save" parameterType="pd">
+		insert into 
+		<include refid="tableName"></include>
+		(
+		<include refid="Field"></include>
+		) values (
+		<include refid="FieldValue"></include>	
+		)
+	</insert>
+	
+	<!-- 保存修改 -->
+	<update id="edit" parameterType="pd">
+		update 
+		<include refid="tableName"></include>
+		set ROLE_NAME = #{ROLE_NAME}
+		where ROLE_ID = #{ROLE_ID}
+	</update>
+	
+	<!-- 删除角色  -->
+	<delete id="deleteRole" parameterType="String">
+		delete from 
+		<include refid="tableName"></include>
+		where ROLE_ID=#{ROLE_ID}
+	</delete>
+	
+	<!-- 给当前角色附加菜单权限  -->
+	<update id="updateRoleRights" parameterType="pd" statementType="STATEMENT">
+		update 
+		<include refid="tableName"></include>
+		set ${col}=${value} 
+		where ROLE_ID='${ROLE_ID}'
+	</update>
+	
+	
+
+</mapper>

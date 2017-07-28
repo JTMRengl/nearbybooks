@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserRoleMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_USER_ROLE
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		USERID,
+		ROLEID
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{USERID},
+		#{ROLEID}
+	</sql>
+	
+	<!-- 新增用户 -->
+	<insert id="save" parameterType="UserRole" >
+		insert into 
+		<include refid="tableName"></include> 
+		(
+		   <include refid="Field"></include>
+		) values (
+		  <include refid="FieldValue"></include>
+		)
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="deleteUserRole" parameterType="String" flushCache="false">
+		delete from <include refid="tableName"></include>
+		where 
+		  USERID = #{USERID}
+	</delete>
+</mapper>

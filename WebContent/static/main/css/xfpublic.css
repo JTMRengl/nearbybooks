@@ -1,0 +1,185 @@
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif,寰蒋闆呴粦, 瀹嬩綋;font-size: 12px;_font-size: 12px;text-decoration: none;}
+img { border: 0 none; vertical-align: top; }
+ul, li { list-style-type: none; }
+h1, h2, h3, h4, h5, h6 { font-size: 14px; }
+body, input, select, button, textarea { font-size: 12px; font-family: Arial, Helvetica, sans-serif, "瀹嬩綋", "寰蒋闆呴粦"; }
+button { cursor: pointer; }
+html,body{width:100%;}label{font-weight: normal; display: inline-block;}
+i, em, cite { font-style: normal; }
+body { background: #fff; color: #333;  }
+a, a:link, a:hover , a:active , a:visited { text-decoration: none; }
+a:active, a:link {color: #000;}
+a:focus { outline: none; }a:hover{color:#d00;}
+.fl{float:left;}.curP{ cursor: pointer;}
+.fr{float:right;}.disIB{ display: inline-block;}
+.hidn, .tab_no{display:none;}
+.tab_box{display:block;}
+.clearfloat { /* 此类应当放在 div 或 break 元素上，而且该元素应当是完全包含浮动的容器关闭之前的最后一个元素 */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+label{ display: inline-block;}
+input[type=checkbox], input[type=radio] {
+    margin-top: 2px;
+}
+
+
+
+
+/**绐楀彛鑿滃崟**/
+.dropdown-menu {display:none; font-size: 14px;list-style: none outside none;padding:3px 3px;min-width: 140px; max-width:160px; border:solid 1px #bbb;background:#fff;border-radius:5px;box-shadow:1px 1px 1px 1px rgba(0,0,0,.15);}
+.dropdown-menu li{margin:auto;width:100%;line-height:22px;}
+.dropdown-menu > li > a {
+    clear: both;color: #333333;display: block;font-weight: normal;line-height: 30px;
+    padding: 0px 20px; vertical-align:middle;
+}
+.dropdown-menu > li > a.jz{color:#ccc; cursor:ne-resize;}
+.dropdown-menu .divider{border-top:solid 1px #eee;margin-top:2px;margin-bottom:2px;}
+.dropdown-menu > li:hover a{ background:#e6f0f6;border-radius:3px;}
+
+
+
+
+
+/**banner**/
+.ptopBanner{height:66px;}
+.ptopBanner.ptBan00{background: url(../img/pageHeaderImg00.jpg) repeat-x left top;}
+.ptopBanner.ptBan01{background: url(../img/pageHeaderImg01.jpg) repeat-x left top;}
+.ptopBanner.ptBan02{background: url(../img/pageHeaderImg02.jpg) repeat-x left top;}
+.ptopBanner.ptBan03{background: url(../img/pageHeaderImg03.jpg) repeat-x left top;}
+.ptopBanner.ptBan04{background: url(../img/pageHeaderImg04.jpg) repeat-x left top;}
+.ptopBanner.ptBan05{background: url(../img/pageHeaderImg05.jpg) repeat-x left top;}
+.ptopBanner.ptBan06{background: url(../img/pageHeaderImg06.jpg) repeat-x left top;}
+.ptopBanner.ptBan07{background: url(../img/pageHeaderImg09.jpg) repeat-x left top;}
+.ptopBanner.ptBan08{background: url(../img/pageHeaderImg08.jpg) repeat-x left top;}
+.pageName{height:64px;}
+.pageName strong.tit{float:left;font-size:18px;color:#2c557b;float:left;margin-top:20px;margin-left:16px; font-family: 寰蒋闆呴粦,榛戜綋;}
+.pageName.pageTitTab{height:66px;border-bottom:solid 2px #1c74bf;}
+.pageName.pageTitTab .PTabBox{height:40px;margin-top:24px;margin-left:160px; float: left;}
+.pageName.pageTitTab .PTabBox li{width: auto;height:40px; float: left;margin-right:6px;}
+.pageName.pageTitTab .PTabBox li a{padding-left:30px;padding-right:30px;line-height: 40px;background:#fff; display: inline-block;border-radius:5px 5px 0px 0px;}
+.pageName.pageTitTab .PTabBox li.hover a{background:#1c74bf;color:#fff;}
+.pageName.pageTitTab .PTabBox li a:hover{background-color: #5fb6ff;color:#ff0;}
+.pageName.pageTitTab .PTabBox li.hover a:hover{background:#1c74bf;}
+
+/**title**/
+.titAuto{height:38px;line-height:36px;background:#f7f7ff;border-top:solid 1px #fff;border-bottom:solid 1px #e5e5e7;padding:0 12px;}
+.titAuto .tit{font-size:14px;color:#09528f;}
+.titAuto .more{width:32px;height:16px; background: url(../img/tit-more.gif) no-repeat center top; display: inline-block;}
+.titAuto .TabNr abbr{height:30px;line-height:30px;margin:0;padding:0px 20px; cursor: pointer;border:solid 1px #ccc;background:#fff; display: inline-block;}
+.titAuto .TabNr abbr.hover{background:#337ab7;border-color: #2e6da4;color:#fff;}
+.titAuto .fr a.btn{padding:0 12px;line-height:30px;margin-top:2px;}
+
+.qhWk .TabNr abbr{margin-left:6px;border:solid 1px #ddd;background:#fff;font-size:14px;}
+.qhWk .TabNr abbr:hover{color:#d00;}
+.qhWk .TabNr abbr.hover{border-bottom:none;}
+.titAuto.qhWk .TabNr abbr{height:35px;line-height:34px;}
+.titAuto.qhWk .TabNr abbr.hover{height:36px;background:#fff;color:#007BE3;border-color: #ddd;font-weight:bold;}
+
+.setToolBox.qhWk .TabNr abbr{height:39px;line-height:38px; background:#f0f0f0;padding-left:22px;padding-right:22px; cursor: pointer; display: inline-block;}
+.setToolBox.qhWk .TabNr abbr.hover{height:40px;background:#fff;color:#007BE3;border-color: #ddd;font-weight:bold;}
+
+
+/**淇℃伅绀烘**/
+.promptBox{padding:12px 20px; position: relative;background:#fff;}
+.promptBox .closeico{ position: absolute;right:4px;top:4px;width: 16px;height:16px; display: inline-block;}
+.promptBox em.mtx{width:64px;}.promptBox em.mtx i{font-size:40px;line-height:40px;float:left;color:#999;}
+.promptBox .promTx{margin-left:60px;}
+.promptBox .promTx h4{font-size: 16px;}
+.promptBox .promTx .tsx{padding-top:6px;}
+/**璀︾ず**/
+.promptBox.error{}
+/**閫氱煡**/
+.promptBox.notice{background:#e4f0f8;border:solid 1px #c4d8e7;}
+.notice .promTx h4{color:#2159b6}
+.notice .promTx .tsx{color:#517bc0;}
+
+/***闂撮殧**/
+.M-16{margin:16px;}.M-12{margin:12px;}.M-8{margin:8px;}
+.Mr-16{margin-right:16px;}.Mr-12{margin-right:12px;}.Mr-8{margin-right:8px;}
+.Ml-16{margin-left:16px;}.Ml-12{margin-left:12px;}.Ml-8{margin-left:8px;}.Ml-0{margin-left:0px;}
+.Mt-2{margin-top:2px;}.Mt-4{margin-top:4px;}.Mt-6{margin-top:6px;}.Mt-8{margin-top:8px;}.Mt-12{margin-top:12px;}.Mt-16{margin-top:16px;}
+.Mb-12{margin-bottom:12px;}
+.P-06{padding:0px 6px;}.P-6-9{padding:6px 9px;border-radius:4px;}.P-012{padding:0px 12px;}
+.P-0{padding:0px;}.P-8{padding:8px;}.P-12{padding:12px;}.P-18{padding:18px;}
+.Pl-16{padding-left:16px;}
+
+
+/**瀹�***/
+.W2b{width:20%;}.W3b{width:30%;}.W4b{width:40%;}.W5b{width:50%;}.W6b{width:60%;}.W7b{width:70%;}.W8b{width:80%;}.W10b{width: 100%;}
+
+
+
+/**杈规**/
+.bk{ border:solid 1px #e0e0e0;}
+.nrPoR{position:relative;}
+.nrPoR .Mgd{position:absolute;top:0;left:0;right:0; display: block;}
+.tX{border-top:solid 1px #ddd;height:0px;line-height:0;font-size:0;}
+
+
+/**鎸夐挳**/
+input.btn,a.btn{height:30px;line-height:30px;font-size:12px;display: inline-block;border:solid 1px #ccc;margin-left:3px;margin-right:3px;border-radius:3px;color:#333;}
+input.btn:hover,a.btn:hover{color:#d00;background:#eee;border-color: #ccc;}
+input.btnF,a.btnF{color:#fff;}
+input.btnF:hover,a.btnF:hover{color:#fff;background:#063964;}
+.btn.btn24{height:24px;line-height:22px;padding-left:12px;padding-right:12px;border-radius:5px;}
+.btn.btn40{height:47px;line-height:38px;padding-left:20px;padding-right:20px;border-radius:5px;}
+.btn.btn40.btnEnt{min-width:120px; text-align:center;padding-left:32px;padding-right:32px;}
+.btn.btnWd{min-width:80px;padding-left:32px;padding-right:32px;}
+input[type=submit].btn.wWK,a.btn.wWK{border:none;}
+.btn.Ml-0{margin-left:0;}
+
+
+.Btn.Btn24{height:24px;line-height:22px;padding-left:12px;padding-right:12px;border-radius:5px;}
+.Btn.Btn40{height:40px;line-height:38px;padding-left:20px;padding-right:20px;border-radius:5px;}
+.Btn.Btn40.BtnEnt{min-width:120px; text-align:center;padding-left:32px;padding-right:32px;}
+.Btn.BtnWd{min-width:80px;padding-left:32px;padding-right:32px;}
+.Btn.Ml-0{margin-left:0;}
+input.Btn,a.Btn{height:30px;line-height:30px;font-size:12px;display: inline-block;border:solid 1px #ccc;margin-left:3px;margin-right:3px;border-radius:3px;color:#333;}
+input.Btn:hover,a.Btn:hover{color:#d00;background:#eee;border-color: #ccc;}
+input.BtnF,a.BtnF{color:#fff;}
+input.BtnF:hover,a.BtnF:hover{color:#fff;background:#063964;}
+
+
+/**鏂囧瓧棰滆壊**/
+.FsF{color:#fff;}
+.FsHS,a.FsHS{/**涓撶敤绾㈣壊**/color:#d00;}
+.FsTS{color:#f88000;}
+.FsH0{color:#000;}
+.FsH3{color:#333;}.FsLS{/**缁胯壊*/color:#33aa04;}
+.FsH6{color:#666;}.FsHb{color:#bbb;}
+.FsH9{color:#999;}.FsHg{/*榛�*/color:#FFFF00;}
+.FsSL{color:#09528f; /**娣辫摑**/}
+a.FsG{color:#26b933;}
+.FsQL,a.FsQL{color:#0c86ed; /**涓摑**/}
+a.FsQL:hover{color:#d00;}
+
+/**鏂囧瓧澶у皬**/
+.F20{font-size:20px;}.F16{font-size:16px;}.F18{font-size:18px;}
+.F14{font-size:14px;}
+.F12{font-size:12px;}
+.F11{font-size:1.1em;}
+.F10{font-size:10px;}
+
+/**灞呬腑瀵归綈**/
+.TxC{ text-align: center;}
+.TxR{ text-align: right;}
+
+
+/**鑳屾櫙**/
+.backT{/*透明*/background-color: rgba(255,255,255,0); box-shadow: none;}
+.backF{background:#fff;}
+.back1{/*绾�*/background-color: #d00;}
+.back2{/*娴疯摑*/background-color: #61a9cf;}
+.back3{/*娣遍粍*/background-color: #b7bd71;}
+.back4{/*鑽夌豢*/background-color: #5fbf79;}
+.back5{/*鐜孩*/background-color: #d95656;}
+.back6{/*澶╄摑*/background-color: #1e97cd;}
+.back7{/*鍦熺孩*/background-color: #cc7575;}
+.back8{/*娣辩传*/background-color: #c17cc2;}
+.back9{/*闈掔豢*/background-color: #7cc88c;}
+.backA{/*涓豢*/background-color: #26b933;}
+.backL{/*鎸夐挳钃�*/background-color: #0e8cdc;}
+.backJH{/*妗旂孩*/background-color: #e66006;}

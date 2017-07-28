@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="UserMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		SYS_USER
+	</sql>
+
+	<!--组织机构表名 -->
+	<sql id="deptTableName">
+		SYS_DEPARTMENT
+	</sql>
+
+	<!--角色用户表名 -->
+	<sql id="userRoleTableName">
+		SYS_USER_ROLE
+	</sql>
+	
+	<!-- 添加字段 -->
+	<sql id="FieldAdd">
+		USERNAME,
+		PASSWORD,
+		NAME,
+		SEX,
+		BIRTH_DATE,
+		ADDRESS,
+		POSTCODE,
+		EMAIL,
+		PHONE,
+		PATH,
+		TYPE,
+		DESCRIPTION,
+		CREATE_DATE,
+		DEPT_ID,
+		LOGIN_KEY
+	</sql>	
+	
+	<!-- 字段值 -->
+	<sql id="FieldAddValue">
+		#{USERNAME},
+		#{PASSWORD},
+		#{NAME},
+		#{SEX},
+		#{BIRTH_DATE},
+		#{ADDRESS},
+		#{POSTCODE},
+		#{EMAIL},
+		#{PHONE},
+		#{PATH},
+		#{TYPE},
+		#{DESCRIPTION},
+		#{CREATE_DATE},
+		#{DEPT_ID},
+		#{LOGIN_KEY}
+	</sql>	
+
+	<!-- 字段 -->
+	<sql id="Field">
+		USER_ID,
+		USERNAME,
+		PASSWORD,
+		NAME,
+		SEX,
+		BIRTH_DATE,
+		ADDRESS,
+		POSTCODE,
+		EMAIL,
+		PHONE,
+		PATH,
+		TYPE,
+		DESCRIPTION,
+		CREATE_DATE,
+		DEPT_ID,
+		LOGIN_KEY
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{USER_ID},
+		#{USERNAME},
+		#{PASSWORD},
+		#{NAME},
+		#{SEX},
+		#{BIRTH_DATE},
+		#{ADDRESS},
+		#{POSTCODE},
+		#{EMAIL},
+		#{PHONE},
+		#{PATH},
+		#{TYPE},
+		#{DESCRIPTION},
+		#{CREATE_DATE},
+		#{DEPT_ID},
+		#{LOGIN_KEY}
+	</sql>
+
+	<!-- 判断用户名和密码 -->
+	<select id="Login" parameterType="pd" resultType="User">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where
+		USERNAME = #{USERNAME}
+		and PASSWORD=#{PASSWORD}
+	</select>
+	<!-- 判断手机号和密码 -->
+	<select id="LoginPhone" parameterType="pd" resultType="User">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where
+		PHONE = #{PHONE}
+		and PASSWORD=#{PASSWORD}
+	</select>
+	<!-- 统计用户总数 -->
+	<select id="findUserCount" resultType="int">
+		select
+		count(USER_ID) count
+		from
+		<include refid="tableName"></include>
+	</select>
+
+	<!-- 更新loginkey -->
+	<update id="updateLoginKey" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		set
+		LOGIN_KEY = #{LOGIN_KEY}
+		where
+		USERNAME = #{USERNAME}
+	</update>
+	<update id="updatePassword" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		SET PASSWORD=#{password} WHERE user_id=#{user_id}
+	</update>
+	<update id="updatePOSTCODEByuserId" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		SET POSTCODE=#{POSTCODE} WHERE user_id=#{user_id}
+	</update>
+	<update id="updatePOSTCODEAll" parameterType="pd">
+		update
+		<include refid="tableName"></include>
+		SET POSTCODE=0
+	</update>
+
+	<!-- 查询角色下用户 -->
+	<select id="findListByRoleId" parameterType="pd" resultType="User">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where USER_ID in (
+		select USERID from
+		<include refid="userRoleTableName"></include>
+		where ROLEID=#{ROLE_ID}
+		)
+	</select>
+
+	<!-- 根据手机用户 -->
+	<select id="findUserByPhone" parameterType="String" resultType="User">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where PHONE = #{phone}
+	</select>
+	
+	<!-- 根据name分页查询用户 -->
+	<!-- <select id="findUserListPage" parameterType="page" resultType="pd" 
+		> select u.USER_ID, u.USERNAME, u.SEX, u.NAME, u.EMAIL, u.PHONE, u.PATH, 
+		u.TYPE, u.DEPT_ID, d.NAME AS DEPT_NAME from <include refid="tableName"></include> 
+		u,<include refid="deptTableName"></include> d where u.DEPT_ID=d.DEPARTMENT_ID 
+		<if test="pd.username!= 'admin'"> and u.USERNAME != 'admin' </if> <if test="pd.name!= 
+		null and pd.name != ''">关键词检索 and u.NAME LIKE CONCAT(CONCAT('%', #{pd.name}),'%') 
+		</if> </select> -->
+
+	<!-- 根据name分页查询用户 -->
+	<select id="findUserListPage" parameterType="page" resultType="pd">
+		select
+		u.USER_ID,
+		u.USERNAME,
+		u.SEX,
+		u.NAME,
+		u.EMAIL,
+		u.PHONE,
+		u.PATH,
+		u.TYPE,
+		u.DEPT_ID
+		from
+		<include refid="tableName"></include>
+		u
+		where
+		<if test="pd.username!= 'admin'">
+			u.USERNAME != 'admin'
+		</if>
+		<if test="pd.name!= null and pd.name != ''"><!-- 关键词检索 -->
+			and u.NAME LIKE CONCAT(CONCAT('%', #{pd.name}),'%')
+		</if>
+	</select>
+
+	<!-- 新增用户 -->
+	<insert id="save" parameterType="User">
+		insert into
+		<include refid="tableName"></include>
+		(
+		<include refid="Field"></include>
+		) values (
+		<include refid="FieldValue"></include>
+		)
+	</insert>
+
+	<!-- 修改 -->
+	<update id="edit" parameterType="User">
+		update
+		<include refid="tableName"></include>
+		set USERNAME = #{USERNAME},
+		NAME = #{NAME},
+		SEX = #{SEX},
+		BIRTH_DATE = #{BIRTH_DATE},
+		ADDRESS = #{ADDRESS},
+		POSTCODE = #{POSTCODE},
+		EMAIL = #{EMAIL},
+		TYPE = #{TYPE},
+		PHONE = #{PHONE},
+		DESCRIPTION = #{DESCRIPTION},
+		DEPT_ID = #{DEPT_ID}
+		where
+		USER_ID = #{USER_ID}
+	</update>
+
+	<!-- 删除用户 -->
+	<delete id="deleteUser" parameterType="String" flushCache="false">
+		delete from
+		<include refid="tableName"></include>
+		where
+		USER_ID = #{USER_ID}
+	</delete>
+
+	<!-- 查询用户信息 -->
+	<select id="findById" parameterType="String" resultType="pd">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where
+		USER_ID = #{USER_ID}
+	</select>
+
+
+	<!-- 查询用户角色信息 -->
+	<select id="findByIdOnRole" parameterType="String" resultType="pd">
+		select sr.ROLE_NAME name,su.USERNAME from sys_user su
+		LEFT JOIN sys_user_role sur on sur.USERID = su.USER_ID
+		LEFT JOIN sys_role sr on sr.ROLE_ID = sur.ROLEID
+		where
+		su.USER_ID = #{USER_ID}
+	</select>
+
+	<!-- 查询用户信息 -->
+	<select id="findByName" parameterType="String" resultType="User">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+		where
+		USERNAME = #{USERNAME}
+	</select>
+</mapper>

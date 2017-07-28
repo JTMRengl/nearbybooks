@@ -1,0 +1,39 @@
+
+.homeHeader{height:48px;background:#fff;}
+.homeHeader .sysName{float:left;width:220px;height:48px;background:#063964 url(../img/sysName.png) no-repeat center;}
+.homeHeader .topheader{height:47px;margin-left:220px;border-bottom:solid 1px #ddd;padding:0px 12px; text-align: right;}
+.homeHeader .topheader a.ico{float:right;width:16px;height:16px;margin-top:14px;margin-right:12px;margin-left:8px;}
+.homeHeader .topheader a.fl{margin-top:13px;}
+.homeHeader .topheader a .iconfont{display:inline-block;font-size:18px;line-height:18px;color:#555;}
+.homeHeader .topheader span.menuWz{position:relative;float:right;}
+.homeHeader .topheader a.usname{margin-top:14px;width: auto;}
+.homeHeader .topheader a.usname i.iconfont{float:left;margin-right:6px;}
+.homeHeader .topheader span ul.weizhi{position:absolute; z-index:4; top:41px;left:0px;width:120px;}
+.homeHeader .topheader ul.open{ display:inline-block;}
+
+
+
+.homeMain{ position:relative;}
+.homeMain .homeLeftNav{ position: fixed;width:220px;left:0;top:48px;bottom:0;background:#09528f;}
+.homeMain .homeLeftNav.xf-XSBox{width:0;display: none;}
+.homeMain .homeMainFrame{position: fixed;left:220px;right:0;top:48px;bottom:0;}
+.homeMain .homeMainFrame iframe{width:100%;height:100%;background:#ddd;border:none;padding:0;margin:0;}
+.homeMain .homeMainFrame.xf-XSBox{left:0;}
+.homeMain .homeLeftJG{height:5px;font-size:4px;line-height:4px; background: url(../img/homeLeftJG.gif); display:block;}
+
+
+.homeLNav a{font-size:14px;color:#fff;}
+.homeLNav  li{height:42px;line-height:42px;border-bottom:solid 1px #0a5f9c;}
+.homeLNav  li i.iconfont{width:16px;height:16px;display: inline-block;margin-right:10px;margin-top:2px;float:left;}
+.homeLNav  li .menu-dk{width:16px;height:16px;float:right;margin-top:12px;display: inline-block;background:url(../img/homeLeftJG.gif) no-repeat center -32px;}
+.homeLNav  li.hover .menu-dk{ background-position: center -16px;}
+.homeLNav  li h4,
+.homeLNav  li a{display: block;font-size:14px;color:#fff;line-height:42px;padding-left:20px;padding-right:10px; cursor: pointer;}
+.homeLNav  li ul{ display: none;}
+.homeLNav  li.hover{height:auto;padding:0px;background:#1c74bf;border-left:solid 4px #3ea7ff;}
+.homeLNav  li.hover h4{padding-left:16px;padding-right:10px;}
+.homeLNav  li.hover ul{display: block;width:100%;margin:0;padding:0;background:#1c74bf;}
+.homeLNav  li.hover ul li{padding-left:28px;border:none;}
+.homeLNav  li.hover ul li.hover{background:#3ea7ff;}
+.homeLNav  li.hover a{padding-left:16px;}
+

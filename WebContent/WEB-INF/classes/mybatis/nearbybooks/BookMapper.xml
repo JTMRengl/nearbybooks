@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		book
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		id,
+		book_name,
+		author,
+		cover_img,
+		home_img,
+		introducation,
+		reasons,
+		isbn,
+		review,
+		status_hire,
+		type_zu_shou,
+		upload_time,
+		stadard_number,
+		delete_flag
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{id},
+		#{book_name},
+		#{author},
+		#{cover_img},
+		#{home_img},
+		#{introducation},
+		#{reasons},
+		#{isbn},
+		#{review},
+		#{status_hire},
+		#{type_zu_shou},
+		#{upload_time},
+		#{stadard_number},
+		#{delete_flag}
+	</sql>
+	
+	<!-- 新增用户 -->
+	<insert id="save" parameterType="Book">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into 
+		<include refid="tableName"></include> 
+		(
+		   <include refid="Field"></include>
+		) values (
+		  <include refid="FieldValue"></include>
+		)
+	</insert>
+	<!-- 查询图书 -->
+	<select id="findList" parameterType="String" resultType="Book">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+	</select>
+	<!-- 查询图书 -->
+	<select id="listListPageList" parameterType="Page" resultType="pd">
+		select b.id,b.book_name,su.`NAME` as username,b.isbn,ub.price_hire,ub.price_sell,b.type_zu_shou from book b
+		LEFT JOIN user_book ub on ub.book_id = b.ID
+		LEFT JOIN sys_user su on su.USER_ID = ub.user_id
+		ORDER BY b.id desc
+	</select>
+	<!-- 修改图书 -->
+	<update id="update" parameterType="Book">
+		update
+		<include refid="tableName"></include>
+		set status_hire=#{status_hire},
+		stadard_number=#{stadard_number}
+		where
+		id = #{id}
+	</update>
+	<!-- 查询图书 相关信息 -->
+	<select id="getBookById" parameterType="int" resultType="Book">
+		select * from book b
+		where b.id = #{id}
+	</select>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="int" flushCache="false">
+		delete from
+		<include refid="tableName"></include>
+		where
+		id = #{id}
+	</delete>
+	<!-- 查询图书 -->
+	<select id="getUserBookListPageList" parameterType="Page" resultType="pd">
+		select su.USER_ID,b.id,b.book_name,su.`NAME` as username,b.isbn,ub.price_hire,ub.price_sell,b.type_zu_shou from book b
+		LEFT JOIN user_book ub on ub.book_id = b.ID
+		LEFT JOIN sys_user su on su.USER_ID = ub.user_id
+		WHERE su.USER_ID = #{pd.userid}
+		ORDER BY b.id desc
+	</select>
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookCommentMapper">
+
+	<!--表名 -->
+	<sql id="tableName">
+		book_comment
+	</sql>
+	
+	<!-- 字段 -->
+	<sql id="Field">
+		id,
+		book_id,
+		user_id,
+		content,
+		date_comment,
+		delete_flag
+	</sql>
+	
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{id},
+		#{book_id},
+		#{user_id},
+		#{content},
+		#{date_comment},
+		#{delete_flag}
+	</sql>
+	
+	<!-- 新增评论 -->
+	<insert id="save" parameterType="BookComment">
+		<selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+		insert into 
+		<include refid="tableName"></include> 
+		(
+		   <include refid="Field"></include>
+		) values (
+		  <include refid="FieldValue"></include>
+		)
+	</insert>
+	<!-- 查询评论-->
+	<select id="findListByBookId" parameterType="String" resultType="BookComment">
+		select
+		<include refid="Field"></include>
+		from
+		<include refid="tableName"></include>
+	</select>
+	<!-- 修改评论 -->
+	<update id="update" parameterType="BookComment">
+		update
+		<include refid="tableName"></include>
+		where
+		id = #{id}
+	</update>
+	<!-- 删除 -->
+	<delete id="delete" parameterType="int" flushCache="false">
+		delete from
+		<include refid="tableName"></include>
+		where
+		id = #{id}
+	</delete>
+</mapper>

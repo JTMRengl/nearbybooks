@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.vi.item{position:relative;margin-left:10%;width:80%;}
+
+.center_ver { /*垂直居中*/ align-items:center; display: -webkit-flex; }
+.center_hor { /*水平居中*/ justify-content:center; display: -webkit-flex; }
+
+.center-child{display:table;_position:relative;overflow:hidden;}
+.child{vertical-align:middle;display:table-cell;_position:absolute;_top:50%;}
+
+.right{float:right !important;}
+.left{float:left !important;}
+
+.clear{clear:right;}
+
+

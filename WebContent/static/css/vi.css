@@ -1,0 +1,223 @@
+@charset "utf-8";
+
+body{background-color:#f4f4f4;}
+
+a{cursor:pointer;color:rgba(33,133,208);
+
+  -webkit-transition: color 0.5s;
+     -moz-transition: color 0.5s;
+       -o-transition: color 0.5s;
+          transition: color 0.5s;
+}
+a:hover{color:#91bfdd;}
+
+.pointer{cursor:pointer;}
+.disabled{pointer-events:none;opacity:0.4;}
+
+.shadow{background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;}
+.hide{display:none;}
+
+.black{color:rgba(33,33,33);}
+
+form > .item{margin-bottom:10px;line-height:35px;}
+form > .name-list{float:left;margin-right:10px;}
+form > .name-list label{float:right;line-height:37px;margin-bottom:10px;}
+
+/* - 渐变 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.webkit{background-image:linear-gradient( to bottom, rgba(244,244,244,1) 10%, rgba(255,0,198,0) 100%);}
+
+.gray{color:#a1a1a1;}
+.green{color:#7acb88;}
+
+/* - button -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.button.tran.Block{padding:10px;border-radius:5px;width:60px;height:60px;background-color:#7b8485;opacity:0.9;cursor:pointer;}
+.vi.button.tran.Block:hover{opacity:0.5;}
+.vi.button.tran.Block img{width:40px;height:40px;}
+
+/* - 头 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.head{position:fixed;top:0;width:100%;height:60px;background-color:#fff;opacity:0.95;z-index:999;box-shadow: 2px 2px 5px #c0c0c0;}
+.vi.head > .item{height:100%;float:left;}
+.vi.head > .logo{margin-left:10%;font-size:25px;}
+.vi.head > .logo img{max-height: 40px;}
+.vi.head > .menu{margin-left:5%;}
+.vi.head > .menu > .item{margin-right:10px;height:100%;float:left;padding-left:20px;padding-right:20px;line-height:60px;font-size:15px;
+
+  -webkit-transition: border 0.1s;
+     -moz-transition: border 0.1s;
+       -o-transition: border 0.1s;
+          transition: border 0.1s;
+}
+.vi.head > .menu > .item:hover{border-bottom:3px solid;color:#333;}
+.vi.head > .search{margin-left:20px;}
+.vi.head > .user{margin-right:10%;float:right;}
+.vi.head > .user .login{display:none;}
+.vi.head > .user .login a{padding-left:10px;padding-right:10px;}
+.vi.head > .user .loging{font-size:13px;display:none;}
+.vi.head > .user .loging > .item{padding-left:10px;}
+.vi.head .searchI{width:200px;
+  -webkit-transition: width .5s;
+     -moz-transition: width .5s;
+       -o-transition: width .5s;
+          transition: width .5s;
+}
+.vi.head .searchI:focus{width:250px;}
+
+/* - content -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.contents{width:100%;height:auto;margin-top:90px;}
+
+/* - content -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.foot{width:100%;min-height:300px;background-color:#000;color:#fff;}
+
+/* - 轮播图 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.carousel{position:relative;overflow: hidden;width:100%;height:450px;}
+.vi.carousel .item{position:absolute;overflow:hidden;
+	
+	-webkit-transition: width 0.5s, margin-left 0.5s, box-shadow 0.5s;
+	   -moz-transition: width 0.5s, margin-left 0.5s, box-shadow 0.5s;
+	     -o-transition: width 0.5s, margin-left 0.5s, box-shadow 0.5s;
+	        transition: width 0.5s, margin-left 0.5s, box-shadow 0.5s;
+}
+.vi.carousel .item img{height:100%;}
+.vi.carousel .item.nl{width:0;height:100%;}
+.vi.carousel .item.l{cursor:pointer;margin-left:0;width: calc((100% - 650px)/2);height:100%;}
+.vi.carousel .item.c{box-shadow:0 0 30px 10px #0b0b0b;margin-left:calc((100% - 650px)/2);width:650px;height:100%;z-index:990;}
+.vi.carousel .item.r{cursor:pointer;margin-left:calc((100% - 650px) / 2 + 650px);width:calc((100% - 650px)/2);height:100%;}
+.vi.carousel .item.nr{margin-left:100%;width:0;height:100%;}
+
+/* - 标题 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.title{position:relative;margin-top:20px;padding-left:19px;height:30px;}
+.vi.title a{position:absolute;right:5px;bottom:5px;}
+
+/* - list -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.list{width:100%;}
+.vi.list .item{float:left;margin-left:5px;margin-right:5px;margin-bottom:10px;padding:10px;height:400px;background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;}
+.vi.list .item:hover{box-shadow: 2px 5px 7px #c0c0c0;}
+.vi.list .item .image{width:100%;height:280px;overflow:hidden;cursor:pointer;}
+.vi.list .item .image img{width:100%;height:280px;}
+.vi.list .item .content{margin-top:10px;}
+.vi.list .item .content .header{font-weight:bold;font-size:17px;}
+.vi.list .item .content .meta a{font-size:13px;color:#c0c0c0;}
+.vi.list .item .content .description{margin-top:10px;font-size:15px;}
+
+/* - table -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.table{position:relative;width:100%;height:auto;overflow:auto;}
+.vi.table .thead{position:absolute;width:100%;height:50px;}
+.vi.table .thead .item{float:left;padding:10px;height:100%;line-height:30px;text-align:center;}
+.vi.table .content{position:relative;margin-top:65px;width:100%;}
+.vi.table .content .item{width:100%;height:100px;margin-bottom:15px;background-color:#fff;}
+.vi.table .content .item:hover{background-color:#F5F5F5;}
+.vi.table .content .item .column{float:left;padding:10px;height:100%;border-right:1px dashed #c0c0c0;text-align:center;}
+.vi.table .content .item .column:last-child{border:0;}
+.vi.table .content .item .column img{height:80px;}
+.vi.table .content .item .column .introduction{font-size:13px;}
+.vi.table .mask{position:absolute;top:-5px;left:-5%;width:110%;height:55px;}
+.vi.table .bg{width:100%;height:50px;background-color:#fff;}
+
+/* - 翻页 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.flip{position:relative;width:100%;overflow:auto;}
+.vi.flip #left{position:absolute;top:170px;left:calc((10% - 60px) / 2);}
+.vi.flip #right{position:absolute;top:170px;right:calc((10% - 60px) / 2);}
+.vi.flip #list{width:100%;height:100%;}
+
+/* - 个人信息 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.personal-info{position:relative;padding:20px;width:100%;background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;min-height:20px;overflow:hidden;}
+.vi.personal-info .avatar{width:60px;height:60px;background-color:#c0c0c0;border-radius:200px;overflow:hidden;border:1px solid #f5f5f5;}
+.vi.personal-info .avatar img{width:60px;height:60px;}
+.vi.personal-info a{margin-left:20px;}
+
+/* - 动态背景 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.dynamic_bg{width:100%;height:100%;overflow:hidden;}
+.vi.dynamic_bg img{margin-left:-5%;margin-top:-5%; width:110%;height:110%;}
+
+/* - 登录页 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.login-head{padding:0 40px 0 40px;position:fixed;width:100%;height:75px;}
+.login-head .menu{float:right;padding:28px 20px 0 20px;height:100%;max-width:150px;text-align:center;color:#fff;cursor:pointer;
+	-webkit-transition: background-color .5s, color .5s;
+	   -moz-transition: background-color .5s, color .5s;
+	     -o-transition: background-color .5s, color .5s;
+	        transition: background-color .5s, color .5s;
+}
+.login-head .menu:hover{background-color:rgba(255,255,255,.6);color:#000;}
+.login-form{padding:35px 20px 20px 20px;position:fixed;top:170px;right:15%;height:400px;width:360px;background-color:rgba(255,255,255,.7);}
+.login-form > .title{float:left;width:100%;padding-bottom:7px;margin-bottom:15px;border-bottom:2px solid;font-size:16px;font-weight:bold;}
+.login-form > .icon.input{width:100%;margin-bottom:15px;opacity:.8;}
+.login-form > a{color:rgba(157,157,157,.8);margin-bottom:15px;}
+.login-form > .login{width:100%;margin-bottom:15px;opacity:.8;}
+
+/* - 注册页 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+.vi.register > .title{width:100%;height:80px;background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;padding:0 10% 0 10%;}
+.vi.register .title .item{height:100%;float:left;margin-left:20px;}
+.vi.register .register-form{margin-top:80px;margin-left:17%;width:400px;height:500px;}
+.vi.register .register-form > div{margin-bottom:20px;}
+
+.vi.address-list{width:100%;clear:right;}
+.vi.address-list .item{position:relative;padding:15px;margin:10px 0 10px 0; width:100%;border:1px solid #c0c0c0;border-radius:5px;}
+.vi.address-list .item > .close.icon{float:right;margin-right:-10px;margin-top:-10px;color:#c0c0c0;font-size:16px;cursor:pointer;
+	-webkit-transition: opacity .5s;
+	   -moz-transition: opacity .5s;
+	     -o-transition: opacity .5s;
+	        transition: opacity .5s;
+}
+.vi.address-list .item > .close.icon:hover{opacity:.7;}
+.vi.address-list .item > .control{position:absolute;bottom:5px;width:calc(100% - 25px);}
+.vi.address-list .item > .control > a{float:right;margin-left:10px;font-size:13px;color:#a1a1a1;}
+.vi.address-list .item > .control > a:hover{color:#686868;}
+
+.config{position:relative;background-color:#fff;width:400px;margin-left:calc(50% - 200px);color:#000;overflow:hidden;}
+.config h3{margin:25px;}
+.config div{float:left;height:50px;width:50%;border-top:1px solid #c0c0c0;cursor:pointer;padding-top:20px;text-align:center;
+	-webkit-transition: background-color .5s, color .5s;
+	   -moz-transition: background-color .5s, color .5s;
+	     -o-transition: background-color .5s, color .5s;
+	        transition: background-color .5s, color .5s;
+}
+.config .yes{border-right:1px solid #c0c0c0;}
+.config .yes:hover{background-color:rgba(22,171,57);color:#fff;}
+.config .no:hover{background-color:rgba(207,41,27);color:#fff;}
+
+.vi.bookinfo{position:relative;padding:20px;margin-bottom:20px;width:100%;background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;overflow:auto;}
+.vi.bookinfo .img{float:left;margin-right:15px;}
+.vi.bookinfo .img img{width:280px;height:400px;}
+.vi.bookinfo .info{position:relative;float:left;width:calc(100% - 40px - 280px - 250px);height:400px;}
+.vi.bookinfo .info .title{font-size:17px;}
+.vi.bookinfo .info p{margin-bottom:10px;}
+.vi.bookinfo .info .action{position:absolute;bottom:0;width:100%;}
+.vi.bookinfo .master{position:relative;float:right;padding:10px 0 10px 15px;width:260px;height:400px;border-left:1px dashed #c0c0c0;}
+.vi.bookinfo .master .head{float:left;margin:0 15px 20px 15px;border-radius:30px;width:50px;height:50px;}
+.vi.bookinfo .master .name{float:left;}
+.vi.bookinfo .master .other{width:100%;margin-top:15px;padding-top:10px;border-top:1px dashed #c0c0c0;}
+.vi.bookinfo .master .other .item{width:100%;padding:5px;height:40px;cursor:pointer;}
+.vi.bookinfo .master .other .item:hover{background-color:#efefef;}
+.vi.bookinfo .master .other .item a{color:#a1a1a1;}
+.vi.bookinfo .master .other .item .img{float:left;height:30px;}
+.vi.bookinfo .master .other .item .title{float:left;line-height:30px;font-weight:bold;font-size:13px;}
+.vi.bookinfo .master .other .item .tags{float:right;margin-top:4px;padding:2px 7px 5px 7px;height:20px;background-color:rgba(138,186,218);border-radius:10px;color:#fff;font-size:11px;}
+
+.detailed{position:relative;padding:20px;width:100%;background-color:#fff;box-shadow: 2px 2px 5px #c0c0c0;overflow:auto;}
+
+.actions{top:10px !important;}
+.text{font-size:13px !important;}
+
+
+
+
+
+
+
+
+
+
